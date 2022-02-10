@@ -80,26 +80,39 @@ class _LoginScreenState extends State<LoginScreen> {
                       builder: (_) {
                         return SizedBox(
                           height: 44,
-                          child: RaisedButton(
-                            hoverColor: Colors.black,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(32),
+                          width: 90,
+                          child: ElevatedButton(
+
+                            style: ElevatedButton.styleFrom(
+                           textStyle:  TextStyle(
+                                  color: Colors.white,
+
+                              ),
+                              elevation: 100,
+                              onSurface: Colors.black,
+                              primary: Theme.of(context).primaryColor,
+                              shadowColor:
+                                  Theme.of(context).primaryColor.withAlpha(100),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(32),
+                              ),
                             ),
                             child: loginStore.loading
                                 ? CircularProgressIndicator(
                                     valueColor:
                                         AlwaysStoppedAnimation(Colors.white),
                                   )
-                                : Text('Login'),
-                            color: Theme.of(context).primaryColor,
-                            disabledColor:
-                                Theme.of(context).primaryColor.withAlpha(100),
-                            textColor: Colors.white,
+                                : Text(
+                                    'Login',
+
+                                  ),
                             onPressed: loginStore.loginPressed,
                           ),
+                        
                         );
                       },
-                    )
+                    ),
+
                   ],
                 ),
               )),
